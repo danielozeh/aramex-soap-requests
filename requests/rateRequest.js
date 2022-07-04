@@ -1,12 +1,16 @@
+const config = require('../config')
+const {aramex} = config
+
 module.exports = {
     'ClientInfo': {
-        'UserName': 'Danny',
-        'Password': 'Password',
-        'Version': 'v1.0',
-        'AccountNumber': '00111',
-        'AccountPin': '0011',
-        'AccountEntity': '01',
-        'AccountCountryCode': 'NG'
+        'UserName': aramex.username,
+        'Password': aramex.password,
+        'Version': aramex.version,
+        'AccountNumber': aramex.account_number,
+        'AccountPin': aramex.account_pin,
+        'AccountEntity': aramex.account_entity,
+        'AccountCountryCode': aramex.account_country_code,
+        'Source': 0
     },
     'Transaction': {
         'Reference1': '001',
@@ -53,7 +57,7 @@ module.exports = {
         'NumberOfPieces': 5,
         'ProductGroup': 'EXP',
         'ProductType': 'PPX',
-        'PaymentType': 'T',
+        'PaymentType': 'P',
         'PaymentOptions': 'CASH',
         'CustomsValueAmount': {
             'CurrencyCode': 'NGN',
