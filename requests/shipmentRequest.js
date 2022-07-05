@@ -1,7 +1,10 @@
 const config = require('../config')
 const {aramex} = config
 
-module.exports = {
+var minutesToAdd=1440;
+var currentDate = new Date();
+
+const createShipment = {
     'ClientInfo': {
         'UserName': aramex.username,
         'Password': aramex.password,
@@ -180,4 +183,135 @@ module.exports = {
         'ReportID': 9201,
         'ReportType': 'URL'
     }
+}
+
+const createPickup = {
+    'ClientInfo': {
+        'UserName': aramex.username,
+        'Password': aramex.password,
+        'Version': aramex.version,
+        'AccountNumber': aramex.account_number,
+        'AccountPin': aramex.account_pin,
+        'AccountEntity': aramex.account_entity,
+        'AccountCountryCode': aramex.account_country_code,
+        'Source': 0
+    },
+    'Transaction': {
+        'Reference1': '001',
+        'Reference2': '',
+        'Reference3': '',
+        'Reference4': '',
+        'Reference5': ''
+    },
+    'Pickup': {
+        'PickupAddress': {
+            'Line1': 'Oladimeji street',
+            'Line2': 'Aguda',
+            'Line3': '',
+            'City': 'Surulere',
+            'StateOrProvinceCode': '',
+            'PostCode': '101283',
+            'CountryCode': 'NG'
+        },
+        'PickupContact': {
+            'Department': '',
+            'PersonName': 'Daniel Ozeh',
+            'Title': 'Mr.',
+            'CompanyName': 'Daniel Ozeh Plc',
+            'PhoneNumber1': '8134277988',
+            'PhoneNumber1Ext': '+234',
+            'PhoneNumber2': '',
+            'PhoneNumber2Ext': '',
+            'FaxNumber': '',
+            'CellPhone': '08134277988',
+            'EmailAddress': 'hello@danielozeh.com.ng',
+            'Type': ''
+        },
+        'PickupLocation': '',
+        'PickupDate': new Date(currentDate.getTime() + minutesToAdd*60000).toISOString(),
+        'ReadyTime': new Date().toISOString(),
+        'LastPickupTime': new Date().toISOString(),
+        'ClosingTime': new Date().toISOString(),
+        'Comments': '',
+        'Reference1': '001',
+        'Reference2': '',
+        'Reference3': '',
+        'Reference4': '',
+        'Reference5': '',
+        'Vehicle': 'Bus',
+        'Shipments': [
+            {
+                'PackageType': '',
+                'Quantity': 1,
+                'Weight': {
+                    'Unit': 'KG',
+                    'Value': 2.00
+                },
+                'Comments': '',
+                'Reference1': '001'
+            },
+        ],
+        'PickupItems': [
+            {
+                'ProductGroup': 'EXP', //required
+                'ProductType': 'PPX',
+                'NumberOfShipments': 1, //required
+                'PackageType': 'Box',
+                'Payment': 'P', //required
+                'ShipmentWeight': {
+                    'Unit': 'KG',
+                    'Value': 2.00
+                },
+                'ShipmentVolume': {
+                    'Unit': '',
+                    'Value': ''
+                },
+                'NumberOfPieces': 1,
+                'CashAmount': {
+                    'CurrencyCode': 'NGN',
+                    'Value': 0.00
+                },
+                'ExtraCharges': {
+                    'CurrencyCode': 'NGN',
+                    'Value': 0.00
+                },
+                'ShipmentDimensions': {
+                    'Length': 3.0,
+                    'Width': 3.0,
+                    'Height': 3.0,
+                    'Unit': 'CM'
+                },
+                'Comments': ''
+            }
+        ],
+        'Status': ''
+    }
+}
+
+const cancelPickup = {
+    'ClientInfo': {
+        'UserName': aramex.username,
+        'Password': aramex.password,
+        'Version': aramex.version,
+        'AccountNumber': aramex.account_number,
+        'AccountPin': aramex.account_pin,
+        'AccountEntity': aramex.account_entity,
+        'AccountCountryCode': aramex.account_country_code,
+        'Source': 0
+    },
+    'Transaction': {
+        'Reference1': '001',
+        'Reference2': '',
+        'Reference3': '',
+        'Reference4': '',
+        'Reference5': ''
+    },
+    'PickupGUID': '',
+    'Comments': 'Cancel Pickup'
+}
+
+module.exports = {
+    createShipment,
+    createPickup,
+    cancelPickup
 }

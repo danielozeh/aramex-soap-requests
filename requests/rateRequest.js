@@ -20,20 +20,20 @@ module.exports = {
         'Reference5': '005'
     },
     'OriginAddress': {
-        'Line1': '19 Alhaji Suleimas street',
-        'Line2': 'Isolo',
+        'Line1': 'Oladimeji street',
+        'Line2': 'Aguda',
         'Line3': '',
-        'City': 'Isolo',
-        'StateOrProvinceCode': 'LAGOS',
+        'City': 'Lagos',
+        'StateOrProvinceCode': 'Lagos',
         'PostCode': '',
         'CountryCode': 'NG'
     },
     'DestinationAddress': {
-        'Line1': 'Oladimeji street',
-        'Line2': 'Aguda',
+        'Line1': '10 Olaiya street',
+        'Line2': 'Oregun',
         'Line3': '',
-        'City': 'Surulere',
-        'StateOrProvinceCode': 'LAGOS',
+        'City': 'Lagos Island',
+        'StateOrProvinceCode': 'Lagos',
         'PostCode': '',
         'CountryCode': 'NG'
     },
@@ -55,10 +55,10 @@ module.exports = {
         'DescriptionOfGoods': '',
         'GoodsOriginCountry': '',
         'NumberOfPieces': 5,
-        'ProductGroup': 'EXP',
+        'ProductGroup': 'DOM', //DOM for Domestic, EXP Express Delivery
         'ProductType': 'PPX',
-        'PaymentType': 'P',
-        'PaymentOptions': 'CASH',
+        'PaymentType': '3', // Third Party
+        'PaymentOptions': 'ACCT',
         'CustomsValueAmount': {
             'CurrencyCode': 'NGN',
             'Value': 500.0
@@ -69,7 +69,7 @@ module.exports = {
         },
         'InsuranceAmount': {
             'CurrencyCode': 'NGN',
-            'Value': 0
+            'Value': 500.0
         },
         //'CashAdditionalAmount': '3',
         'CollectAmount': {
@@ -77,6 +77,17 @@ module.exports = {
             'Value': 500.0
         },
         'Services': 'SIG',
-        'Items': []
+        'Items': [
+            {
+                'PackageType': 'Box',
+                'Quantity': 1,
+                'Weight': {
+                    'Value': 0.5,
+                    'Unit': 'KG'
+                },
+                'Comments': 'Description of Item',
+                'Reference': '00123'
+            }
+        ]
     }
 }
