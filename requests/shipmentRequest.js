@@ -35,7 +35,7 @@ const createShipment = {
                     'Line1': '19 Alhaji Suleimas street',
                     'Line2': 'Isolo',
                     'Line3': '',
-                    'City': 'Isolo',
+                    'City': 'Lagos',
                     'StateOrProvinceCode': 'LAGOS',
                     'PostCode': '',
                     'CountryCode': 'NG'
@@ -63,8 +63,8 @@ const createShipment = {
                     'Line1': 'Oladimeji street',
                     'Line2': 'Aguda',
                     'Line3': '',
-                    'City': 'Surulere',
-                    'StateOrProvinceCode': 'LAGOS',
+                    'City': 'Lagos',
+                    'StateOrProvinceCode': '',
                     'PostCode': '',
                     'CountryCode': 'NG'
                 },
@@ -135,10 +135,10 @@ const createShipment = {
                 'DescriptionOfGoods': 'A simple package for delivery',
                 'GoodsOriginCountry': 'NG',
                 'NumberOfPieces': 1,
-                'ProductGroup': 'EXP',
-                'ProductType': 'PPX',
-                'PaymentType': 'P',
-                'PaymentOptions': 'CASH',
+                'ProductGroup': 'DOM', //DOM for  Domestic, EXP for International
+                'ProductType': 'OND',
+                'PaymentType': '3',
+                'PaymentOptions': 'ACCT',
                 'CustomsValueAmount': {
                     'CurrencyCode': 'NGN',
                     'Value': 1.00

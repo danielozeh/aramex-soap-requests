@@ -23,8 +23,8 @@ module.exports = {
         'Line1': 'Oladimeji street',
         'Line2': 'Aguda',
         'Line3': '',
-        'City': 'Lagos',
-        'StateOrProvinceCode': 'Lagos',
+        'City': 'Abuja',
+        'StateOrProvinceCode': '',
         'PostCode': '',
         'CountryCode': 'NG'
     },
@@ -32,8 +32,8 @@ module.exports = {
         'Line1': '10 Olaiya street',
         'Line2': 'Oregun',
         'Line3': '',
-        'City': 'Lagos Island',
-        'StateOrProvinceCode': 'Lagos',
+        'City': 'Ibadan',
+        'StateOrProvinceCode': '',
         'PostCode': '',
         'CountryCode': 'NG'
     },
@@ -56,7 +56,7 @@ module.exports = {
         'GoodsOriginCountry': '',
         'NumberOfPieces': 5,
         'ProductGroup': 'DOM', //DOM for Domestic, EXP Express Delivery
-        'ProductType': 'PPX',
+        'ProductType': 'DOM', //DOM for domestic
         'PaymentType': '3', // Third Party
         'PaymentOptions': 'ACCT',
         'CustomsValueAmount': {
