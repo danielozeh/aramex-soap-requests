@@ -23,7 +23,7 @@ module.exports = {
         'Line1': 'Oladimeji street',
         'Line2': 'Aguda',
         'Line3': '',
-        'City': 'Abuja',
+        'City': 'Lagos',
         'StateOrProvinceCode': '',
         'PostCode': '',
         'CountryCode': 'NG'
@@ -32,7 +32,7 @@ module.exports = {
         'Line1': '10 Olaiya street',
         'Line2': 'Oregun',
         'Line3': '',
-        'City': 'Ibadan',
+        'City': 'Port Harcourt',
         'StateOrProvinceCode': '',
         'PostCode': '',
         'CountryCode': 'NG'
@@ -52,12 +52,12 @@ module.exports = {
             'Unit': 'KG',
             'Value': 2.0
         },
-        'DescriptionOfGoods': '',
-        'GoodsOriginCountry': '',
+        'DescriptionOfGoods': 'Brief Description of my Item',
+        'GoodsOriginCountry': 'NG',
         'NumberOfPieces': 5,
-        'ProductGroup': 'DOM', //DOM for Domestic, EXP Express Delivery
-        'ProductType': 'DOM', //DOM for domestic
-        'PaymentType': '3', // Third Party
+        'ProductGroup': 'DOM', //DOM for Domestic, EXP INternational Delivery
+        'ProductType': 'PEC', //OND for Domestic
+        'PaymentType': 'P', //
         'PaymentOptions': 'ACCT',
         'CustomsValueAmount': {
             'CurrencyCode': 'NGN',
