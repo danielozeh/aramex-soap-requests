@@ -227,7 +227,7 @@ const createPickup = {
             'EmailAddress': 'hello@danielozeh.com.ng',
             'Type': ''
         },
-        'PickupLocation': '',
+        'PickupLocation': 'Apartment',
         'PickupDate': new Date(currentDate.getTime() + minutesToAdd*60000).toISOString(),
         'ReadyTime': new Date(currentDate.getTime() + 480*60000).toISOString(),
         'LastPickupTime': new Date(currentDate.getTime() + 510*60000).toISOString(),
@@ -253,8 +253,8 @@ const createPickup = {
         ],
         'PickupItems': [
             {
-                'ProductGroup': 'EXP', //required
-                'ProductType': 'PPX',
+                'ProductGroup': 'DOM', //Domestic
+                'ProductType': 'OND', //Domestic
                 'NumberOfShipments': 1, //required
                 'PackageType': 'Box',
                 'Payment': 'P', //required
@@ -284,7 +284,7 @@ const createPickup = {
                 'Comments': ''
             }
         ],
-        'Status': ''
+        'Status': 'Ready'
     }
 }
 
