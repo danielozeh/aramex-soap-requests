@@ -14,6 +14,8 @@ var rate_request = require('./requests/rateRequest')
 var shipment_request = require('./requests/shipmentRequest')
 var location_request = require('./requests/locationRequest')
 var tracking_request = require('./requests/trackingRequest')
+var aramex_url = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc/json'
+var aramex_rate_url = 'http://ws.aramex.net/shippingapi/ratecalculator/service_1_0.svc/json'
 
 app.get('/',function(req,res){
     res.send('Aramex Soap API Requests');
@@ -25,8 +27,25 @@ app.get('/describe',function(req,res){
     });
 });
 
-app.get('/rate',function(req, res){
-    soap.createClient(rate_url, function(err, client) {
+app.get('/rate', async function(req, res){
+    try {
+        let response = await axios.post(`${aramex_rate_url}/CalculateRate`, rate_request.CalculateRate)
+        console.log(response)
+
+        let {HasErrors} = response.data
+
+        if(!HasErrors) {
+            res.json(response.data)
+            return
+        }
+        res.status(400).json(response.data)
+        return
+    }
+    catch(e) {
+        res.status(500).json(e)
+        return
+    }
+    /*soap.createClient(rate_url, function(err, client) {
         client.CalculateRate(rate_request, function(err, result) {
             if(err) {
                 console.log(err)
@@ -39,11 +58,22 @@ app.get('/rate',function(req, res){
             res.json(result);
             return
         });
-    });
+    });*/
 });
 
-app.get('/shipment/create',function(req, res){
-    soap.createClient(shipment_url, function(err, client) {
+app.get('/shipment/create', async function (req, res){
+    let response = await axios.post(`${aramex_url}/CreateShipments`, shipment_request.createShipment)
+
+    let {HasErrors} = response.data
+
+    if(!HasErrors) {
+        res.json(response.data)
+        return
+    }
+    res.status(400).json(response.data)
+    return
+
+    /*soap.createClient(shipment_url, function(err, client) {
         client.CreateShipments(shipment_request.createShipment, function(err, result) {
             console.log(err)
             if(err) {
@@ -57,11 +87,28 @@ app.get('/shipment/create',function(req, res){
             res.json(result);
             return
         });
-    });
+    });*/
 });
 
-app.get('/shipment/pickup/create',function(req, res){
-    soap.createClient(shipment_url, function(err, client) {
+app.get('/shipment/pickup/create', async function(req, res){
+    try {
+        let response = await axios.post(`${aramex_url}/createPickup`, shipment_request.createPickup)
+        console.log(response)
+
+        let {HasErrors} = response.data
+
+        if(!HasErrors) {
+            res.json(response.data)
+            return
+        }
+        res.status(400).json(response.data)
+        return
+    }
+    catch(e) {
+        res.status(500).json(e)
+        return
+    }
+    /*soap.createClient(shipment_url, function(err, client) {
         client.CreatePickup(shipment_request.createPickup, function(err, result) {
             console.log(shipment_request.createPickup)
             console.log(err)
@@ -76,7 +123,7 @@ app.get('/shipment/pickup/create',function(req, res){
             res.json(result);
             return
         });
-    });
+    });*/
 });
 
 app.get('/shipment/pickup/cancel',function(req, res){
