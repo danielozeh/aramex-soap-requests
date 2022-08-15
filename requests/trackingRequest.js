@@ -12,7 +12,8 @@ const trackShipments = {
         'AccountCountryCode': aramex.account_country_code,
         'Source': 0
     },
-    'Shipments': ['']
+    'Shipments': ['30690613402'],
+    'GetLastTrackUpdateOnly': true
 }
 
 module.exports = {

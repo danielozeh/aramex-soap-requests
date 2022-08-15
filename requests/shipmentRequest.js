@@ -5,7 +5,7 @@ var minutesToAdd=1440;
 var currentDate = new Date();
 
 const createShipment = {
-    'ClientInfo': {
+    ClientInfo: {
         'UserName': aramex.username,
         'Password': aramex.password,
         'Version': aramex.version,
@@ -13,178 +13,155 @@ const createShipment = {
         'AccountPin': aramex.account_pin,
         'AccountEntity': aramex.account_entity,
         'AccountCountryCode': aramex.account_country_code,
-        'Source': 0
+        Source: 0,
+        PreferredLanguageCode: null
     },
-    "Transaction": {
-        "Reference1": "001",
-        "Reference2": "",
-        "Reference3": "",
-        "Reference4": "",
-        "Reference5": ""
+    Transaction: {
+      Reference1: 'O3GKaKA9PrmJqpGA',
+      Reference2: '',
+      Reference3: '',
+      Reference4: '',
+      Reference5: ''
     },
-    "Shipments": [
-        {
-            "Reference1": "00001",
-            "Reference2": "00002",
-            "Reference3": "00003",
-            "Shipper": {
-                "Reference1": "RFS0001",
-                "Reference2": "",
-                "AccountNumber": "60537570",
-                "PartyAddress": {
-                    "Line1": "19 Alhaji Suleimas street",
-                    "Line2": "Isolo",
-                    "Line3": "",
-                    "City": "Lagos",
-                    "StateOrProvinceCode": "LAGOS",
-                    "PostCode": "",
-                    "CountryCode": "NG"
-                },
-                "Contact": {
-                    "Department": "",
-                    "PersonName": "Daniel Ozeh",
-                    "Title": "Mr.",
-                    "CompanyName": "",
-                    "PhoneNumber1": "8134277988",
-                    "PhoneNumber1Ext": "+234",
-                    "PhoneNumber2": "",
-                    "PhoneNumber2Ext": "",
-                    "FaxNumber": "",
-                    "CellPhone": "8134277988",
-                    "EmailAddress": "hello@danielozeh.com.ng",
-                    "Type": ""
-                }
+    Shipments: [
+      {
+        Reference1: '5v9VQIseF2o1kfl9',
+        Reference2: 'TzDGjdJNHOtOBMsX',
+        Reference3: 'YeB6A4E0RQUviegN',
+        Shipper: {
+            Reference1: 'hpvf4hEyBIFPzULS',
+            Reference2: '',
+            AccountNumber: '60537570',
+            PartyAddress: {
+              Line1: '045 Oladimeji street',
+              Line2: '',
+              Line3: '',
+              City: 'Apapa',
+              StateOrProvinceCode: '',
+              PostCode: '100123',
+              CountryCode: 'NG'
             },
-            "Consignee": {
-                "Reference1": "RFS0001",
-                "Reference2": "",
-                "AccountNumber": "",
-                "PartyAddress": {
-                    "Line1": "Oladimeji street",
-                    "Line2": "Aguda",
-                    "Line3": "",
-                    "City": "Lagos",
-                    "StateOrProvinceCode": "",
-                    "PostCode": "",
-                    "CountryCode": "NG"
-                },
-                "Contact": {
-                    "Department": "",
-                    "PersonName": "Daniel Ozeh",
-                    "Title": "Mr.",
-                    "CompanyName": "Daniel Ozeh",
-                    "PhoneNumber1": "8134277988",
-                    "PhoneNumber1Ext": "+234",
-                    "PhoneNumber2": "",
-                    "PhoneNumber2Ext": "",
-                    "FaxNumber": "",
-                    "CellPhone": "8134277988",
-                    "EmailAddress": "hello@danielozeh.com.ng",
-                    "Type": ""
-                }
+            Contact: {
+              Department: '',
+              PersonName: 'Daniel Ozeh',
+              Title: '',
+              CompanyName: 'Daniel Ozeh',
+              PhoneNumber1: '+2348134277988',
+              PhoneNumber1Ext: '',
+              PhoneNumber2: '',
+              PhoneNumber2Ext: '',
+              FaxNumber: '',
+              CellPhone: '+2348134277988',
+              EmailAddress: 'danielozeh@gmail.com',
+              Type: ''
+            }
+        },
+        Consignee: {
+            Reference1: 'z37vVV7vsdViOLSb',
+            Reference2: '',
+            AccountNumber: '',
+            PartyAddress: {
+              Line1: '2 Seaforth Avenue',
+              Line2: 'Harehills',
+              Line3: '',
+              City: 'Leeds',
+              StateOrProvinceCode: 'Leeds',
+              PostCode: 'LS9 6BE',
+              CountryCode: 'GB'
             },
-            "ThirdParty": {
-                "Reference1": "",
-                "Reference2": "",
-                "AccountNumber": "",
-                "PartyAddress": {
-                    "Line1": "",
-                    "Line2": "",
-                    "Line3": "",
-                    "City": "",
-                    "StateOrProvinceCode": "",
-                    "PostCode": "",
-                    "CountryCode": ""
-                },
-                "Contact": {
-                    "Department": "",
-                    "PersonName": "",
-                    "Title": "",
-                    "CompanyName": "",
-                    "PhoneNumber1": "",
-                    "PhoneNumber1Ext": "",
-                    "PhoneNumber2": "",
-                    "PhoneNumber2Ext": "",
-                    "FaxNumber": "",
-                    "CellPhone": "",
-                    "EmailAddress": "",
-                    "Type": ""
-                }
+            Contact: {
+              Department: '',
+              PersonName: 'Nnamdi Okoh',
+              Title: '',
+              CompanyName: 'Nnamdi Okoh',
+              PhoneNumber1: '+447122689641',
+              PhoneNumber1Ext: '',
+              PhoneNumber2: '',
+              PhoneNumber2Ext: '',
+              FaxNumber: '',
+              CellPhone: '+447122689641',
+              EmailAddress: 'pickup@example.com',
+              Type: ''
+            }
+        },
+        ThirdParty: {
+            Reference1: '',
+            Reference2: '',
+            AccountNumber: '',
+            PartyAddress: {
+              Line1: '',
+              Line2: '',
+              Line3: '',
+              City: '',
+              StateOrProvinceCode: '',
+              PostCode: '',
+              CountryCode: ''
             },
-            "ShippingDateTime": "/Date(1658491453000)/",
-            "DueDate": "/Date(1658491453000)/",
-            "Comments": "",
-            "PickupLocation": "Apartment",
-            "AccountingInstrcutions": "Nothing special",
-            "OperationsInstructions": "Nothing special",
-            "Details": {
-                "Dimensions": {
-                    "Length": 3.0,
-                    "Width": 3.0,
-                    "Height": 3.0,
-                    "Unit": "CM"
-                },
-                "ActualWeight": {
-                    "Unit": "KG",
-                    "Value": 2.0
-                },
-                "ChargeableWeight": {
-                    "Unit": "KG",
-                    "Value": 2.0
-                },
-                "DescriptionOfGoods": "A simple package for delivery",
-                "GoodsOriginCountry": "NG",
-                "NumberOfPieces": 1,
-                "ProductGroup": "DOM",
-                "ProductType": "OND",
-                "PaymentType": "P",
-                "PaymentOptions": "ACCT",
-                "CustomsValueAmount": {
-                    "CurrencyCode": "NGN",
-                    "Value": 1.00
-                },
-                "CashOnDeliveryAmount": {
-                    "CurrencyCode": "NGN",
-                    "Value": 1.00
-                },
-                "InsuranceAmount": {
-                    "CurrencyCode": "NGN",
-                    "Value": 1.00
-                },
-                "CashAdditionalAmount": {
-                    "CurrencyCode": "NGN",
-                    "Value": 1.00
-                },
-                "CashAdditionalAmountDescription": "None for now",
-                "CollectAmount": {
-                    "CurrencyCode": "NGN",
-                    "Value": 1.00
-                },
-                "Services": "",
-                "Items": [
-                    {
-                        "PackageType": "Box",
-                        "Quantity": 1,
-                        "Weight": {
-                            "Value": 0.5,
-                            "Unit": "KG"
-                        },
-                        "Comments": "Description of Item",
-                        "Reference": "00123"
-                    }
-                ]
+            Contact: {
+              Department: '',
+              PersonName: '',
+              Title: '',
+              CompanyName: '',
+              PhoneNumber1: '',
+              PhoneNumber1Ext: '',
+              PhoneNumber2: '',
+              PhoneNumber2Ext: '',
+              FaxNumber: '',
+              CellPhone: '',
+              EmailAddress: '',
+              Type: ''
+            }
+        },
+        ShippingDateTime: '/Date(1660118416000)/',
+        DueDate: '/Date(1660118416000)/',
+        Comments: '',
+        PickupLocation: 'Apartment',
+        AccountingInstrcutions: '',
+        OperationsInstructions: '',
+        Details: {
+            Dimensions: { Length: 11, Width: 1, Height: 10, Unit: 'CM' },
+            ActualWeight: { Unit: 'KG', Value: 5.5 },
+            ChargeableWeight: { Unit: 'KG', Value: 5.5 },
+            DescriptionOfGoods: '',
+            GoodsOriginCountry: 'NG',
+            NumberOfPieces: 1,
+            ProductGroup: 'EXP',
+            ProductType: 'PPX',
+            PaymentType: 'P',
+            PaymentOptions: 'ACCT',
+            CustomsValueAmount: {
+                CurrencyCode: "NGN",
+                Value: 1.00
             },
-            "ForeignHAWB": "",
-            "TransportType ": 0,
-            "Number": null,
-            "ScheduledDelivery": null
-        }
+            CashOnDeliveryAmount: {
+                CurrencyCode: "NGN",
+                Value: 0.00
+            },
+            InsuranceAmount: {
+                CurrencyCode: "NGN",
+                Value: 0.00
+            },
+            CashAdditionalAmount: {
+                CurrencyCode: "NGN",
+                Value: 0.00
+            },
+            CashAdditionalAmountDescription: '',
+            CollectAmount: {
+                CurrencyCode: "NGN",
+                Value: 0.00
+            },
+            Services: '',
+            Items: []
+        },
+        PickupGUID: 'b26a842a-c0e7-4f5b-8ea7-b3fdc2737ae6',
+        ForeignHAWB: '',
+        TransportType: 0,
+        Number: null,
+        ScheduledDelivery: null
+      }
     ],
-    "LabelInfo": {
-        "ReportID": 9201,
-        "ReportType": "URL"
-    }
-}
+    LabelInfo: { ReportID: 9201, ReportType: 'URL' }
+  }
 
 
 const createPickup = {
@@ -198,13 +175,6 @@ const createPickup = {
         'AccountCountryCode': aramex.account_country_code,
         'Source': 0
     },
-    'Transaction': {
-        'Reference1': '001',
-        'Reference2': '',
-        'Reference3': '',
-        'Reference4': '',
-        'Reference5': ''
-    },
     'Pickup': {
         'PickupAddress': {
             'Line1': 'Oladimeji street',
@@ -213,15 +183,23 @@ const createPickup = {
             'City': 'Surulere',
             'StateOrProvinceCode': '',
             'PostCode': '101283',
-            'CountryCode': 'NG'
+            'CountryCode': 'NG',
+            'Longitude': 0,
+            'Latitude': 0,
+            'BuildingNumber': null,
+            'BuildingName': null,
+            'Floor': null,
+            'Apartment': null,
+            'POBox': null,
+            'Description': null
         },
         'PickupContact': {
             'Department': '',
             'PersonName': 'Daniel Ozeh',
             'Title': 'Mr.',
-            'CompanyName': 'Daniel Ozeh Plc',
+            'CompanyName': '',
             'PhoneNumber1': '8134277988',
-            'PhoneNumber1Ext': '+234',
+            'PhoneNumber1Ext': '',
             'PhoneNumber2': '',
             'PhoneNumber2Ext': '',
             'FaxNumber': '',
@@ -230,29 +208,15 @@ const createPickup = {
             'Type': ''
         },
         'PickupLocation': 'Apartment',
-        'PickupDate': new Date(currentDate.getTime() + minutesToAdd*60000).toISOString(),
-        'ReadyTime': new Date(currentDate.getTime() + 480*60000).toISOString(),
-        'LastPickupTime': new Date(currentDate.getTime() + 510*60000).toISOString(),
-        'ClosingTime': new Date(currentDate.getTime() + 510*60000).toISOString(),
+        'PickupDate': `/Date(${new Date(new Date()).setDate(new Date().getDate() + 1)})/`,
+        'ReadyTime': `/Date(${new Date(new Date()).setDate(new Date().getDate() + 1)})/`,
+        'LastPickupTime': `/Date(${new Date(new Date()).setDate(new Date().getDate() + 1)})/`,
+        'ClosingTime': `/Date(${new Date(new Date()).setDate(new Date().getDate() + 1)})/`,
         'Comments': '',
         'Reference1': '001',
         'Reference2': '',
-        'Reference3': '',
-        'Reference4': '',
-        'Reference5': '',
-        'Vehicle': 'Bus',
-        'Shipments': [
-            {
-                'PackageType': '',
-                'Quantity': 1,
-                'Weight': {
-                    'Unit': 'KG',
-                    'Value': 2.00
-                },
-                'Comments': '',
-                'Reference1': '001'
-            },
-        ],
+        'Vehicle': '',
+        'Shipments': [],
         'PickupItems': [
             {
                 'ProductGroup': 'DOM', //Domestic
@@ -264,19 +228,10 @@ const createPickup = {
                     'Unit': 'KG',
                     'Value': 2.00
                 },
-                'ShipmentVolume': {
-                    'Unit': '',
-                    'Value': ''
-                },
+                'ShipmentVolume': null,
                 'NumberOfPieces': 1,
-                'CashAmount': {
-                    'CurrencyCode': 'NGN',
-                    'Value': 0.00
-                },
-                'ExtraCharges': {
-                    'CurrencyCode': 'NGN',
-                    'Value': 0.00
-                },
+                'CashAmount': null,
+                'ExtraCharges': null,
                 'ShipmentDimensions': {
                     'Length': 3.0,
                     'Width': 3.0,
@@ -286,8 +241,22 @@ const createPickup = {
                 'Comments': ''
             }
         ],
-        'Status': 'Ready'
-    }
+        'Status': 'Ready',
+        'ExistingShipments': null,
+        'Branch': '',
+        'RouteCode': ''
+    },
+    'Transaction': {
+        'Reference1': '001',
+        'Reference2': '',
+        'Reference3': '',
+        'Reference4': '',
+        'Reference5': ''
+    },
+    'LabelInfo': { 
+        'ReportID': 9201, 
+        'ReportType': 'URL' 
+    },
 }
 
 const cancelPickup = {
@@ -308,12 +277,39 @@ const cancelPickup = {
         'Reference4': '',
         'Reference5': ''
     },
-    'PickupGUID': '',
+    'PickupGUID': 'b26a842a-c0e7-4f5b-8ea7-b3fdc2737ae6',
     'Comments': 'Cancel Pickup'
+}
+
+
+const printShipmentLabel = {
+    'ClientInfo': {
+        'UserName': aramex.username,
+        'Password': aramex.password,
+        'Version': aramex.version,
+        'AccountNumber': aramex.account_number,
+        'AccountPin': aramex.account_pin,
+        'AccountEntity': aramex.account_entity,
+        'AccountCountryCode': aramex.account_country_code,
+        'Source': 0
+    },
+    'Transaction': {
+        'Reference1': '001',
+        'Reference2': '',
+        'Reference3': '',
+        'Reference4': '',
+        'Reference5': ''
+    },
+    'ShipmentNumber': '30690613402',
+    'LabelInfo': {
+        'ReportID': 9201,
+        'ReportType': 'URL'
+    }
 }
 
 module.exports = {
     createShipment,
     createPickup,
-    cancelPickup
+    cancelPickup,
+    printShipmentLabel
 }

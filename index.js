@@ -15,7 +15,8 @@ var shipment_request = require('./requests/shipmentRequest')
 var location_request = require('./requests/locationRequest')
 var tracking_request = require('./requests/trackingRequest')
 var aramex_url = 'https://ws.aramex.net/shippingapi.v2/shipping/service_1_0.svc/json'
-var aramex_rate_url = 'http://ws.aramex.net/shippingapi/ratecalculator/service_1_0.svc/json'
+var aramex_rate_url = 'https://ws.aramex.net/ShippingAPI.V2/RateCalculator/Service_1_0.svc/json'
+var aramex_tracking_url = 'https://ws.aramex.net/shippingapi.v2/Tracking/Service_1_0.svc/json'
 
 app.get('/',function(req,res){
     res.send('Aramex Soap API Requests');
@@ -29,8 +30,8 @@ app.get('/describe',function(req,res){
 
 app.get('/rate', async function(req, res){
     try {
-        let response = await axios.post(`${aramex_rate_url}/CalculateRate`, rate_request.CalculateRate)
-        console.log(response)
+        let response = await axios.post(`${aramex_rate_url}/CalculateRate`, rate_request)
+        //console.log(response)
 
         let {HasErrors} = response.data
 
@@ -93,7 +94,7 @@ app.get('/shipment/create', async function (req, res){
 app.get('/shipment/pickup/create', async function(req, res){
     try {
         let response = await axios.post(`${aramex_url}/createPickup`, shipment_request.createPickup)
-        console.log(response)
+        //console.log(response)
 
         let {HasErrors} = response.data
 
@@ -105,6 +106,7 @@ app.get('/shipment/pickup/create', async function(req, res){
         return
     }
     catch(e) {
+        //console.log(e.message)
         res.status(500).json(e)
         return
     }
@@ -126,8 +128,26 @@ app.get('/shipment/pickup/create', async function(req, res){
     });*/
 });
 
-app.get('/shipment/pickup/cancel',function(req, res){
-    soap.createClient(shipment_url, function(err, client) {
+app.get('/shipment/pickup/cancel',async function(req, res){
+    try {
+        let response = await axios.post(`${aramex_url}/CancelPickup`, shipment_request.cancelPickup)
+        //console.log(response)
+
+        let {HasErrors} = response.data
+
+        if(!HasErrors) {
+            res.json(response.data)
+            return
+        }
+        res.status(400).json(response.data)
+        return
+    }
+    catch(e) {
+        //console.log(e.message)
+        res.status(500).json(e)
+        return
+    }
+    /*soap.createClient(shipment_url, function(err, client) {
         client.CancelPickup(shipment_request.cancelPickup, function(err, result) {
             console.log(err)
             if(err) {
@@ -141,7 +161,7 @@ app.get('/shipment/pickup/cancel',function(req, res){
             res.json(result);
             return
         });
-    });
+    });*/
 });
 
 app.get('/countries',function(req, res){
@@ -195,8 +215,26 @@ app.get('/address/validate',function(req, res){
     });
 });
 
-app.get('/shipment/track',function(req, res){
-    soap.createClient(tracking_url, function(err, client) {
+app.get('/shipment/track',async function(req, res){
+    try {
+        //console.log(tracking_request.trackShipments)
+        let response = await axios.post(`${aramex_tracking_url}/TrackShipments`, tracking_request.trackShipments)
+
+        let {HasErrors} = response.data
+
+        if(!HasErrors) {
+            res.json(response.data)
+            return
+        }
+        res.status(400).json(response.data)
+        return
+    }
+    catch(e) {
+        //console.log(e.message)
+        res.status(500).json(e)
+        return
+    }
+    /*soap.createClient(tracking_url, function(err, client) {
         client.TrackShipments(tracking_request.trackShipments, function(err, result) {
             if(err) {
                 console.log(err)
@@ -209,8 +247,29 @@ app.get('/shipment/track',function(req, res){
             res.json(result);
             return
         });
-    });
+    });*/
 });
+
+app.get('/shipment/label/print', async function(req, res){
+    try {
+        let response = await axios.post(`${aramex_url}/PrintLabel`, shipment_request.printShipmentLabel)
+        //console.log(response)
+
+        let {HasErrors} = response.data
+
+        if(!HasErrors) {
+            res.json(response.data)
+            return
+        }
+        res.status(400).json(response.data)
+        return
+    }
+    catch(e) {
+        //console.log(e.message)
+        res.status(500).json(e)
+        return
+    }
+})
 
 app.listen(port, function(){
     console.log('Soap app listening on port '+port);
